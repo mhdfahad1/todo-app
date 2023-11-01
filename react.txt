@@ -1,0 +1,166 @@
+
+                       REACT - Front end technology
+                ----------------------------------------
+
+                       Basic Commands
+                -----------------------------
+                1. To create react project : npx create-react-app project-name
+                2. To run react app : npm start
+                3. to install axios library : npm i axios;
+                4. to install react bootstrap:npm install react-bootstrap bootstrap
+                     -Include bootsrap theme from https://bootstrapwatch.com/ use bootsrap.min.css
+                     file in index.js file
+                5. to install material ui: npm install @mui/material @emotion/react @
+                6. to install react-router-dom : npm i react-router-dom
+                7. to install toastify :npm i react-toastify@5.5.0
+                8. to install redux Toolkit: npm install @reduxjs/toolkit react-redux
+
+
+                       Basic Features & Concepts
+                ----------------------------------------
+
+                - is a collection of JS libraries: Used to design user interface(UI)
+                - Creating Single Page application : GMAIL, Facebook ,Twitter
+                - Declarative Approach :
+                - immutable(not changable) & mutable
+                - Pure Functions : functions accept immutable objects and returns a new
+                 objcet - it did not cause any side effects : Eg:- React components
+                - Virtual DOM :
+                - JSX (Javascript XML) : const heading= <h1>heading 1</h1>
+                     - JSX expressions must have one parent element.
+                     - React fragments: <> </> similar to <div></div>
+                     - changes in attributes:always use camel letters
+                            - class become className
+                            - for become htmlFor
+                     - to display js expressions in jsx :place insid {}
+                     - to style using inline styling in component:  where css property should be in 
+                     camel case in an object
+                     - every jsx element must have closing tag
+                     - tag without contents can be represented as self closing tag:<tag/>
+                - Transpiling :JSX to (HTML,CSS,JS) -babel library(to do transpiling) 
+                - create react app using create-react-app command
+                - components :small part of UI , React app is a collection of components,
+                   they are arranged as a tree structure with parent/start node as 'App' components
+                     -components is a js file, with filename & components name will start with capital letter
+                     -diffrent way to create a components
+                            - Functional/stateless components
+                            - Class based/ stateful components
+                     -High Order Components(HOC)
+              - data sharing in react component : One way binding -parent to child
+                     -Using props :property of component
+                            - it is an access parent or shared data from its function argument via props
+
+                     - data sharing between siblings
+                            -state lifting : create a state with parent and share it with its children
+              - Style react component
+                     - Inline styling
+                     - External style sheet
+                     - CSS module :file with extension as .module.css
+              - React events
+                     -without argument function : events bind using its function name only
+                     -with argument function : events bind using its function name only
+                     -with event object as argument : event bind using arrow function with argument
+                       as event
+              - Conditional Rendering
+                     - if statements : && operator
+                     - if-else statements : ?: ternary operator
+              -React State : built in object
+                     - store properties of component
+                     - state changes then it re-render the component : use setState function
+              - React component life cycle
+
+                     - Mounting phase : putting all elements to DOM
+                            -constructor()
+                            -getDerivedStateFromProps()
+                            -render()
+                            -componentDidMount()
+                     - Updating phase :component Updating
+                            -getDerivedStateFromProps()
+                            -shouldComponentUpdate()
+                            -render()
+                            -getSnapshotBeforeUpdate()
+                            -compontDisUpdate()
+                     - Unmounting phase :removing element from DOM
+                            - componentWillUnmount()
+
+              - React hooks : for making Functional component to use react features 
+                     - import hook, and to use call the hook inside component
+                     - rules for using hook:
+                            - can used only in functional component
+                            - it can only called at the top level of component
+                            - hooks are not conditional
+                     - diffrent types of hooks 
+                            - predefined hooks
+                                   -useState(initial-value): return state and function for updating state 
+                                   -useEffect Hook : allows you to perform side effects in your Components
+                                      useEffect(<function> , <dependency>)
+                                          - no dependency passed: runs on every render
+                                          - an empty array : it runs only in the first render
+                                          - props or state value: runs on the first render, and any time any dependency
+                                          value changes
+                            - custom hooks : when you have component logic that needs to be used by multiple components,
+                            wecan extract thet logic to a custom hook.
+                                   -start with "use" keyword
+                            
+              - Diffrence between functional and class based component
+                   functional component                        class based component
+                ---------------------------                  ---------------------------
+                 1.Js pure function accept props              1. a class extended from react component
+                   as argument and return                       and render function it return jsx 
+                   (react element)                               (react element)
+                 2. no need pf render function                2. need render function to return jsx
+                 3. run code from top to bottom,once          3. component alive depending on the life
+                   jsx return it cannot be alive                cycle phases
+                 4. stateless component                       4. stateful component
+                 5. hooks are used                            5. no need to use hook
+                 6. constructor is not used                   6. Use constructor to initalise the state
+                 7. life cycle method like                    7. can use life cycle methods inside component 
+                 8.componentDidMount is not used
+
+              - Rendering List: use map method
+              - React form
+              - preventDefault()- method cancels the event if it is cancelable, 
+                meaning that the default action that belongs to the event will not occur.
+
+              - Type of Components
+                     - Controlled component - managed by react component
+                     - uncontrolled component - manage by DOM
+
+              - API Call- In react
+                     - Use Axios Library:HTTP client and return Promise
+                            -create a new instance of axios with a custom config
+
+              - Routing / set up path for component in React
+                     - Use react-router-dom library
+                            - entire app should be in BrowserRouter
+                            - Place all component needed to set path inside routes in App component
+                            - to set up path for component use Route inside Routes
+                            - Link: used to redirect from one page to another without reloading
+
+              
+
+              -redux - state management system
+                     - inorder to avoid props drilling
+                     - working flow
+                            - store: js file which can be globally accessed in react app
+                                   -used to store state
+                                   -to provide store to react app use provider selector from react-redux library
+                                   - to access updated state fro store by a component using useSelector hook from 
+                                     react-redux library 
+                            - Actions: js files to define logicto update state which is needed by the component
+                                   -to update state, component has to dispatch the action
+                                   -to dispatch action use useDispatch hook from react-redux library 
+                            - Reducers :js file used to update state in store file 
+                                   -while dispatching action its response (payload) will goto Reducers
+                                   -only Reducers are capable of updating state in REDUX
+              - REDUX Toolkit : standard way to write Redux logic
+                     - Advantages 
+                            - "Configuring a Redux store is too complicated"
+                            - "I have to add a lot of packages to get Redux to do anything useful"
+                            - "Redux requires too much boilerplate code"
+                     - APIs
+                            - configureStore() : To create store
+                            - createReducer() :
+                            - createAction() :
+                            - createSlice() : combine both action and Reducers
+
