@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import List from './List'
 import { useDispatch } from 'react-redux'
 import { addToList, editAitem } from '../redux/FormSlice';
-import { Toast, toast,ToastContainer } from 'react-toastify';
+import { Toast, toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { TextField } from '@mui/material';
 
 
 function Form() {
@@ -14,8 +15,8 @@ function Form() {
     console.log(value);
     const dispatch = useDispatch()
 
-    const storeValue = () => {
-
+    const storeValue = (e) => {
+        e.preventDefault()
         // console.log(index);
         if (value.content) {
             dispatch(addToList(value))
@@ -29,22 +30,23 @@ function Form() {
     return (
         <div className='w-full h-screen flex justify-center items-center'>
             <div className='w-[100%] flex justify-center items-center'>
-                <div className=' md:w-1/3 bg-gray-700 md:p-6 p-4 justify-items-center'>
-                    <h1 className='text-center mb-16' style={{ fontSize: '40px', color: 'white' }}>TO DO APP</h1>
+                <div className='w-96 md:w-1/3 bg-gray-700 md:p-6 p-4 justify-items-center'>
+                    <h1 className='text-center mb-16' style={{ fontSize: '40px', color: 'white' }}>TO DO LIST</h1>
 
-                    <div className='ml-16'>
-                        <label htmlFor="">
-                            <input id='form' onChange={(e) => setvalue({ ...value, content: e.target.value, id: id1, isChecked: false, isclicked: false })} value={value.content} type="text" className='md:w-90 h-8 rounded-xl p-3 outline-none' placeholder='Enter the task' />
-                            <button name='form' onClick={() => storeValue()} className='ml-1 p-1 bg-slate-400 rounded-full'><i className="fa-solid fa-plus "></i></button><br /></label>
+                    <div className='flex justify-center'>
+                        <form >
+                            <input onChange={(e) => setvalue({ ...value, content: e.target.value, id: id1, isChecked: false, isclicked: false })} value={value.content} type="text" className='md:w-60 w-72 h-10 rounded-xl p-3 outline-none' placeholder='Enter the task' />
+                            <button type='submit' name='form' onClick={(e) => storeValue(e)} className='ml-1 p-1 bg-slate-400 rounded-full'><i className="fa-solid fa-plus w-9 h-7 p-1 text-xl"></i></button><br />
+                        </form>
 
                     </div>
-                    <div className='ml-12 w-3/4 mt-16 '>
+                    <div className='md:ml-12 md:w-3/4  mt-16 '>
                         <List />
                     </div>
                 </div>
                 <ToastContainer
                     position="top-center"
-                    autoClose={2000}
+                    autoClose={3000}
                     hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick
@@ -54,8 +56,6 @@ function Form() {
                     pauseOnHover
                     theme="light"
                 />
-                {/* Same as */}
-                <ToastContainer />
 
             </div>
         </div>
