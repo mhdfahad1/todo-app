@@ -35,7 +35,7 @@ function List() {
             dispatch(editAitem(newval))
 
         } else {
-            alert('type data')
+            toast.warning('type data')
         }
 
     }
@@ -50,7 +50,7 @@ function List() {
 
     return (
         <>
-            <div style={{ overflowY: 'scroll' }} className='h-[350px] md:h-[350px]'>
+            <div  className='h-[350px] md:h-[350px]'>
                 {
                     listarray.length > 0 ?
                         listarray.map((item, index) => (
@@ -104,7 +104,7 @@ function List() {
                             </div>
                         ))
                         :
-                        <p className='text-red-600 text-center text-3xl mt-14'>Nothing to display</p>
+                        <p className='text-red-600 text-center text-3xl mt-14'>Add Today Tasks</p>
                 }
 
             </div>
